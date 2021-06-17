@@ -1,221 +1,471 @@
 @import './_variables.sass'
 
 @font-face
-    font-family: 'Helvetica'
-    src: url('../fonts/Helvetica/Helvetica.ttf')
+    font-family: 'norwester--regular'
+    src: url('../fonts/norwester/norwester--regular.otf')
 
-%heading--primary
-    font-size: 3rem
-    font-weight: 700
-    line-height: 3.125rem
-    font-family: "Helvetica", sans-serif
+@font-face
+    font-family: 'muli--regular'
+    src: url('../fonts/muli/muli--regular.ttf')
 
-%heading--secondary
-    font-family: "Helvetica", sans-serif
-    font-size: 2.875rem
-    line-height: 3.125rem
-    font-weight: 700
+@font-face
+    font-family: 'muli--semibold'
+    src: url('../fonts/muli/muli--semibold.ttf')
 
-a.reference--green
-    color: $lightgreen
-    transition: color .2s ease
-    &:hover
-        color: $black
+@font-face
+    font-family: 'muli--bold'
+    src: url('../fonts/muli/muli--bold.ttf')
 
-body
-    font-family: "Open Sans", sans-serif
-    header
-        padding: 3.125rem 0
-        background-color: $background_light
-        .header
-            &__logo_wrapper
-                width: auto
-                max-height: 3.125rem
-                img.header__logo
-                    object-fit: contain
-            &__navigation
-                .navigation__list
-                    .navigation__item
-                        position: relative
-                        &:hover
-                            a::after
-                                transform: scaleX(1)
-                        a
-                            text-transform: capitalize
-                            font-family: "Helvetica", sans-serif
-                            font-size: 1.0625rem
-                            line-height: 0.875rem
-                            color: $black
-                            &::after
-                                content: ''
-                                width: 100%
-                                left: 0
-                                position: absolute
-                                bottom: -0.1875rem
-                                border-top: 2px solid $black
-                                transition: transform 0.3s ease-out
-                                transform: scaleX(0)
-                                animation-direction: alternate
-                        .underline
-                            width: 0
-                            height: 0
-                        &-button
-                            border: none
-                            border-radius: 0.25rem
-                            display: inline-block
-                            padding: 0.725rem 1.325rem
-                            background-color: $lightgreen
-                            color: $white
-                            outline: none
+@mixin backgroundImage($src, $size: contain)
+    background-image: url($src)
+    background-size: $size
+    background-repeat: no-repeat
 
-    section.top
-        padding:
-            top: 2rem
-            bottom: 5rem
-        margin-bottom: 3rem
-        background-color: $background-light
-        clip-path: ellipse(90% 90% at 50% 8%)
-        .top
-            &__heading
-                @extend %heading--primary
-                margin-bottom: 1.3125rem
-            &__description
-                font-size: 1.125rem
-                line-height: 1.6875rem
-                margin-bottom: 1.6875rem
-            &__video
-                display: block
-                margin: auto
-            &__heading,
-            &__description
-                margin:
-                    left: auto
-                    right: auto
-                max-width: 46.875rem
-                text-align: center
+@mixin mainWrapper($size: 60%)
+    max-width: $size
+    margin-left: auto
+    margin-right: auto
 
-    section.organizations
-        margin-bottom: 10rem
-        h2.organizations__heading
-            @extend %heading--secondary
-            margin-bottom: 1.0625rem
-        h3.organizations__description
-            font-size: 1rem
-            line-height: 1.5rem
-            margin-bottom: 1.875rem
-        h2.organizations__heading,
-        h3.organizations__description
+@mixin smallWrapper($size: 41rem)
+    max-width: $size
+    margin-left: auto
+    margin-right: auto
+
+@mixin contentBlock($headingFontSize: 1.5rem, $headingLineHeight: 2rem)
+    h3
+        color: $blue-dark-2
+        font-size: $headingFontSize
+        line-height: $headingLineHeight
+        text-align: center
+        margin-bottom: 1.5rem
+    p
+        color: $grays-dark-gray-2
+        font: 400 1.125rem/1.75rem "muli--regular", sans-serif
+        max-width: 41rem
+        margin: auto
+
+@mixin orderButton
+    text-align: center
+    > img
+        box-shadow: 0.625rem 0.625rem 1.25rem $grays-dark-gray-2
+    > button
+        display: block
+        margin: 2.5rem auto 1rem
+        background-color: $red
+        padding: 0.625rem 1rem
+        text-transform: uppercase
+        color: $white
+        font: 700 1.125rem/1.75rem "muli--bold", sans-serif
+        letter-spacing: 0.15rem
+        border: none
+        outline: none
+        border-radius: 0.25rem
+    > span
+        color: $grays-dark-gray-2
+        font: 400 1.5rem/2rem "muli--regular", sans-serif
+        display: block
+        margin-bottom: 0.5rem
+        span
+            font: 400 1.5rem/2rem "muli--regular", sans-serif
+            color: $blue-dark-2
+    > a
+        font: 400 1rem/1.5rem "muli--regular", sans-serif
+        color: $blue-lighter
+        text-decoration: underline
+        position: relative
+        &::before
+            content: ""
+            width: 1rem
+            height: 1rem
+            position: absolute
+            left: -1.5rem
+            top: 50%
+            transform: translateY(-50%)
+            @include backgroundImage("../images/book__zip.svg")
+
+#p6
+    height: 100%
+    *
+        font-family: "norwester--regular", sans-serif
+    section.banner
+        background-position: center top
+        padding-top: 6rem
+        @include backgroundImage("../images/banner.jpg", 100% 85%)
+        .cont-p6
             text-align: center
-        .organizations__image_wrapper
-            width: auto
-            max-height: 9.375rem
-            img.organizations__image
-                max-width: 100%
-                object-fit: contain
+            text-transform: capitalize
+            color: $white
+            @include mainWrapper
+            h2.banner__subheading
+                font: 600 1.25rem/1.75rem "muli--semibold", sans-serif
+                max-width: 40rem
+                margin: -0 auto 1.5rem
+                display: block
+            h1.banner__heading
+                margin-bottom: 3.6875rem
+                font-size: 2.5rem
+                line-height: 4rem
+        .banner__video
+            img
+                width: 102.5%
+                height: auto
+                box-shadow: 0 1.875rem 2.5rem 0 rgba(21, 55, 96, 0.2);
+    section.order
+        padding: 5rem 0 3.2315rem
+        .cont-p6
+            @include mainWrapper
+            h3.order__heading
+                text-align: center
+                margin-bottom: 1.5rem
+                color: $blue-dark-2
+                font-size: 2rem
+                line-height: 2.5rem
+            figure.order__figure_book
+                @include orderButton
+            .order__warning
+                margin-top: 3rem
+                @include smallWrapper
+                @include contentBlock
+    section.gamechanger
+        padding: 9.3125rem 0 5rem
+        position: relative
+        overflow: hidden
+        z-index: 0
+        &::before
+            content: ""
+            position: absolute
+            width: 200%
+            height: 200%
+            top: 5%
+            left: -50%
+            z-index: -1
+            background: $grays-light-gray-1 0 0 repeat
+            transform: rotate(-1.5deg)
+        .cont-p6
+            p.gamechanger__paragraph
+                text-align: left
+            button.gamechanger__button_order
+                margin-top: 2rem
+            @include smallWrapper
+            @include contentBlock($headingFontSize: 2rem, $headingLineHeight: 2.5rem)
+            @include orderButton
+    section.runner
+        margin-bottom: -3rem
+        img.runner__image
+            position: relative
+            top: -3rem
+            width: 100%
+            margin-bottom: 4rem
+            &--mobile
+                display: none
+    section.content_1
+        .cont-p6
+            @include mainWrapper
+            @include contentBlock($headingFontSize: 2rem, $headingLineHeight: 2.5rem)
+            max-width: 42rem
+            h3.content__heading
+                display: block
+                margin-left: auto
+                margin-right: auto
+            p.content__paragraph
+                &--blue
+                    margin-top: 1.5rem
+                    color: $blue-dark-1
+    section.content_2
+        padding: 4rem 0 3rem
+        .cont-p6
+            @include mainWrapper($size: 72.5%)
+            @include contentBlock($headingFontSize: 1.5rem, $headingLineHeight: 2rem)
+            h3.content__heading
+                max-width: 36rem
                 display: block
                 margin: auto
-
-    section.welcome
-        margin-bottom: 5rem
-        h2.welcome__heading
-            @extend %heading--secondary
-            margin-bottom: 1.6875rem
-        .welcome__content
-            p.welcome__text
-                line-height: 1.5rem
-
-    section.styles
-        background-color: $background_lightblue
-        padding: 4.6875rem 0 
-        margin-bottom: 5rem
-        .styles
-            &__heading
-                @extend %heading--secondary
-                margin-bottom: 1.0625rem
-            &__description
-                line-height: 1.5rem
-                margin-bottom: 3.125rem
-        .row
-            margin-bottom: 2.5rem
-            &:last-of-type
-                margin-bottom: 0
-            .styles__items
-                width: 100%
-                li.styles__item
-                    max-width: 22.5rem
+                margin-bottom: 2.375rem
+            ul.content__items
+                display: flex
+                justify-content: space-between
+                margin-bottom: 3.5rem
+                li.content__item
+                    width: 30%
+                    max-width: 20.6875rem
+                    min-height: 21rem
+                    max-height: 28.5rem
+                    padding: 3.5rem 1.625rem
+                    position: relative
+                    overflow: hidden
+                    &::before
+                        content: ""
+                        position: absolute
+                        width: 200%
+                        height: 90%
+                        top: 8.5%
+                        left: -45%
+                        z-index: -1
+                        background: $blue-dark-2 0 0 repeat
+                        transform: rotate(-2.5deg)
                     h4.item__heading
-                        font-weight: 600
-                        font-size: 1.25rem
-                        line-height: 1.875rem
-                        margin-bottom: 0.4375rem
-                    h5.item__description
-                        font-size: 0.875rem
-                        line-height: 1.5rem
-                        margin-bottom: 1.25rem
+                        font-size: 2rem
+                        line-height: 4rem
+                    p.item__paragraph
+                        font-size: 1rem
+                        line-height: 1.75rem
+                        font: 400 1.125rem/1.75rem "muli--regular", sans-serif
+                        opacity: 0.75
+                        max-height: 15.75rem
+                        overflow: hidden
+                        text-overflow: ellipsis
+                        display: -webkit-box
+                        -webkit-line-clamp: 7
+                        -webkit-box-orient: vertical
                     h4.item__heading,
-                    h5.item__description
-                        text-align: center
-                    .item__image
-                        display: block
-                        width: 22.5rem
-                        height: 12.5rem
-                        background-image: url('../images/styles_item.png')
-                        background-repeat: no-repeat
-                        background-size: 100%
-                        background-position: center
-                        position: relative
-                        transition: background-size .5s ease
-                        &:hover
-                            background-size: 125%
-                        .image__play
-                            opacity: 0.8
-                            top: 50%
-                            left: 50%
-                            width: 4.375rem
-                            height: 4.375rem
-                            transform: translate(-50%, -50%)
-                            position: absolute
-                            &::before
-                                content: ''
-                                position: absolute
-                                width: 100%
-                                height: 100%
-                                background-color: $lightgreen
-                                background-repeat: no-repeat
-                                background-size: cover
-                                border-radius: 50%
-                            &::after
-                                content: ''
-                                position: absolute
-                                top: 50%
-                                left: calc(50% - .25rem)
-                                transform: translate(-50%, -50%) rotate(45deg)
-                                border:
-                                    top: .5rem solid $white
-                                    right: .5rem solid $white
-                                    bottom: .5rem solid transparent
-                                    left: .5rem solid transparent
-    section.difference
-        .difference
-            &__heading
-                @extend %heading--secondary
-                margin-bottom: 1.0625rem
-            &__description
-                line-height: 1.5rem
-                margin-bottom: 3.125rem
-                a.difference__contact
-                    color: $lightgreen
-                    transition: color .2s ease
-                    &:hover
-                        color: $black
-        .difference__items
-            width: 100%
-            .difference__item
-                max-width: 15.625rem
-                h4.item__heading
-                    margin-top: 0.5rem
-                    font-weight: 600
-                h4.item__heading,
-                h5.item__description
-                    font-size: 0.875rem
+                    p.item__paragraph
+                        color: $white
+                        max-width: 17.375rem
+    section.content_3
+        @include backgroundImage($src: "../images/lines__background.svg", $size: contain)
+        background-image: url("../images/lines__background.svg")
+        background-position: center center
+        position: relative
+        overflow: hidden
+        &::before
+            content: ""
+            position: absolute
+            width: 150%
+            height: 106.5%
+            z-index: -1
+            top: -1%
+            left: -45%
+            background: linear-gradient($white 50%, $grays-light-gray-1 50%)
+            transform: rotate(-2deg)
+        .cont-p6
+            @include mainWrapper
+            h3.content__heading
+                text-align: center
+                margin: auto
+                color: $blue-dark-2
+                font-size: 1.5rem
+                line-height: 2rem
+                margin-bottom: 3rem
+                max-width: 35rem
+            img.content__image
+                width: 100%
+                margin-bottom: 6rem;
+    section.content_4
+        background-color: $grays-light-gray-1
+        padding-bottom: 10rem
+        margin-bottom: -3.1rem
+        .cont-p6
+            @include mainWrapper
+            @include contentBlock($headingFontSize: 2rem, $headingLineHeight: 2.5rem)
+            figure.content__figure_book
+                @include orderButton
+                margin-top: 1.5rem
+            span.content__span
+                display: block
+            p.content__paragraph,
+            span.content__span,
+                color: $grays-dark-gray-2
+                font: 400 1.125rem/1.75rem "muli--regular", sans-serif
+                max-width: 41rem
+                margin: 0 auto 1.5rem
+                &--blue
+                    color: $blue-dark-1
+                &:last-of-type
+                    margin-bottom: 0
+            figure.content__figure_book
+                margin-bottom: 3.5rem
+            span.content__span
+                margin: 1.5rem auto
+            .signature__cont-p6
+                max-width: 41rem
+                margin: 1.5rem auto
+                &:last-child
+                    background: red
+    section.comments
+        @include backgroundImage($src: "../images/comments__background.svg", $size: cover)
+        background-position: center center
+        padding: 7.125rem 0
+        .cont-p6
+            @include mainWrapper($size: 67.5%)
+            h3.comments__heading
+                font-size: 2.5rem
+                line-height: 4rem
+                color: $white
+                text-align: center
+                margin-bottom: 2.5rem
+            ul.comments__items
+                display: flex
+                justify-content: space-between
+                li.comments__item
+                    display: flex
+                    flex-direction: column
+                    padding: 3.4375rem 2.5rem
+                    width: 47.5%
+                    max-width: 29.0625rem
+                    min-height: 25rem
+                    position: relative
+                    overflow: hidden
+                    &::before
+                        content: ""
+                        position: absolute
+                        width: 200%
+                        height: 90%
+                        top: 7.5%
+                        left: -45%
+                        background: $white 0 0 repeat
+                        transform: rotate(-3.5deg)
+                    > *
+                        z-index: 1
+                    img.item__image
+                        width: 3rem
+                        height: 3rem
+                        margin-bottom: 1.5rem
+                        border-radius: 50%
+                    p.item__paragraph,
+                    span.item__span
+                        color: $grays-dark-gray-2
+                        font: 400 1.125rem/1.75rem "muli--regular", sans-serif
+                        max-width: 23.5rem
+                        &--blue
+                            color: $blue-dark-1
+                    p.item__paragraph
+                        margin-bottom: 1rem
+                        max-height: 18.75rem
+                        overflow: hidden
+                        text-overflow: ellipsis
+                        display: -webkit-box
+                        -webkit-line-clamp: 10
+                        -webkit-box-orient: vertical
+
+@media screen and (max-width: 1045px)
+    #p6
+        .cont-p6
+            max-width: 75% !important
+
+@media screen and (max-width: 835px)
+    #p6
+        section.banner
+            .cont-p6
+                h2.banner__subheading
+                    font-size: 1rem
                     line-height: 1.5rem
+                h1.banner__heading
+                    font-size: 1.5rem
+                    line-height: 2rem
+
+@media screen and (max-width: 768px)
+    #p6
+        .cont-p6
+            max-width: 90% !important
+        section.content_2
+            .cont-p6
+                ul.content__items li.content__item
+                    h4.item__heading
+                        font-size: 1.75rem
+                    p.item__paragraph
+                        font-size: 0.9rem
+
+@media screen and (max-width: 576px)
+    #p6
+        h3.content__heading
+            text-align: left !important
+            font-size: 1.5rem !important
+            line-height: 2rem !important
+        p.content__paragraph
+            font-size: 1rem !important
+            line-height: 1.5rem !important
+        figure
+            span
+                font-size: 1.125rem !important
+                line-height: 1.75rem !important
+        section.banner
+            padding-top: 2.25rem
+            .cont-p6
+                h2.banner__subheading
+                    margin-bottom: 0.5rem
+                    font-size: 1rem
+                    line-height: 1.5rem
+                h1.banner__heading
+                    margin-bottom: 2.375rem
+                    font-size: 1.5rem
+                    line-height: 2rem
+        section.order
+            padding: 2.4688rem 0 0
+            .cont-p6
+                h3.order__heading
+                    text-align: left
+                    font-size: 1.5rem
+                    line-height: 2rem
+                    margin-bottom: 2rem
+                .order__warning
+                    margin-top: 2.5rem
+                    h3.warning__heading
+                        text-align: left
+                        font-size: 1.25rem
+                        line-height: 1.75rem
+                        margin-bottom: 1rem
+        section.gamechanger
+            padding-top: 7rem
+            .cont-p6
+                h3.gamechanger__heading
+                    text-align: left
+                    font-size: 1.5rem
+                    line-height: 2rem
+                    margin-bottom: 1rem
+                p.gamechanger__paragraph
+                    font-size: 1rem
+                    line-height: 1.5rem
+                button.gamechanger__button_order
+                    margin-top: 2.875rem
+                span.gamechanger__span_description,
+                span.gamechanger__span_description span
+                    font-size: 1.125rem
+                    line-height: 1.75rem
+        section.runner
+            img.runner__image
+                display: none
+                &--mobile
+                    position: relative
+                    top: -3rem
+                    width: 100%
+                    margin-bottom: 4rem
+                    display: block
+        section.content_2
+            .cont-p6
+                h3.content__heading
+                    display: none
+                ul.content__items
+                    flex-direction: column
+                    align-items: center
+                    li.content__item
+                        width: 100%
+                        max-width: unset
+                        height: auto
+                        min-height: unset
+                        &::before
+                            transform: rotate(-1deg)
+                        h4.item__heading
+                            margin: auto
+                            font-size: 2.5rem
+                            line-height: 4rem
+                        p.item__paragraph
+                            font-size: 1.125rem
+                            line-height: 1.75rem
+        section.comments
+            padding-top: 5rem
+            .cont-p6
+                h3.comments__heading
+                    font-size: 1.5rem
+                    line-height: 2rem
+                    margin-bottom: 1rem
+                ul.comments__items
+                    overflow-x: scroll
+                    li.comments__item
+                        flex-shrink: 0
+                        width: 90vw
+                        max-width: unset
+                        margin-right: 1rem
+                        &::before
+                            transform: rotate(-1deg)
+                        &:last-of-type
+                            margin-right: 0

@@ -2,32 +2,88 @@ doctype html
 html(lang='en')
   head
     meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet', href='./assets/styles/styles.min.css')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='./assets/styles/styles.min.css')
     title Animated Explainer Video Production Company | Gisteo
-  body
-    header
-        .container.d-flex.align-items-center.justify-content-between
-            .header__logo_wrapper.col
-                img(src="./assets/images/logo.png").header__logo
-            .header__navigation_wrapper.col-7
-              nav.header__navigation
-                ul.navigation__list.d-flex.align-items-center.justify-content-between
-                  li.navigation__item 
-                    a(href="#") How it works/FAQs
-                    .underline
-                  li.navigation__item
-                    a(href="#") Portfolio
-                    .underline
-                  li.navigation__item
-                    a(href="#") Pricing
-                    .underline
-                  li.navigation__item
-                    a(href="#") About
-                    .underline
-                  li.navigation__item
-                    a(href="#") Contact
-                    .underline
-                  button.navigation__item.navigation__item-button Get Started
-
-    
+  body#p6
+    //- HEADER
+    section.banner
+      .container
+        h2.banner__subheading Think Drugs Are the Only Way to Reduce Your Lower Back Pain?
+        h1.banner__heading Then You Haven’t Tried the 6 Proven Exercises in My (Virtually) FREE Book
+        //- VIDEO
+        .banner__video
+          img(src="./assets/images/video__preview.png" alt="video banner")
+    section.order
+      .container
+        h3.order__heading I’m ready to kickstart my road to recovery. Send me my copy of “6 Powerful Exercises To Reduce Lower Back Pain” today.
+        figure.order__figure_book
+          img(src="./assets/images/book__cover.png" alt="book cover").book__image
+          button.book__button_order Order Now
+          span.book__span_description (You only pay #[span $19.95] for shipping)
+          //- a.book_reference_zip Enter ZIP code
+        .order__warning
+          h3.warning__heading Warning: This Roadmap for Eradicating Lower Back Pain Will Blow Your Mind (and Transform Your Life)
+          p.warning__paragraph Have you visited countless chiropractors and other specialists, without any real relief from your lower back pain? Have you resigned yourself to seeing pain as a “fact of life?” Is your pain keeping you from hitting the court, the field or the track?
+    section.gamechanger
+      .container
+        h3.gamechanger__heading Then get ready for a complete gamechanger.
+        p.gamechanger__paragraph In my new book, I’ll show you a proven framework for reducing your lower back pain. These methods have been clinically tested at my clinic, Performance Place Sports Care. And when I say “clinically tested,” I mean they’re helping athletes of all kinds get back to what they love. Are you ready to leave behind expensive, failed therapies and ​really ​reduce your lower back pain? It all starts with an open mind, a willingness to listen to your body and a solid roadmap. That last part? It’s in my free book. Hit “order now” to start leaving lower back pain behind.
+        button.gamechanger__button_order Order Now
+        span.gamechanger__span_description (You only pay #[span $19.95] for shipping)
+        //- a.gamechanger_reference_zip Enter ZIP code
+    section.runner
+      img(src="./assets/images/runner.png" alt="runner").runner__image
+      img(src="./assets/images/runner--mobile.png" alt="runner mobile").runner__image--mobile
+    section.content_1
+      .container
+        h3.content__heading Six Powerful Exercises. One Proven Framework. So Many Easy Wins.
+        p.content__paragraph Through my decades in sports recovery, I’ve seen how lower back pain can affect people physically, mentally and emotionally. (If you’re an athlete like I am, you know how frustrating it feels to have pain keep you from doing what you love.)
+        p.content__paragraph.content__paragraph--blue That’s why I packed this book with the most actionable information possible. This isn’t a “read it and forget it” guide. It’s a framework you can implement TODAY to get on the road to recovery.
+    section.content_2
+      .container
+        h3.content__heading Experience the MAP a LOAD framework (plus six proven exercises):
+        ul.content__items
+          li.content__item
+            h4.item__heading Modify
+            p.item__paragraph Modify your pain: ​Unload the sensitive tissues and find what your spine likes with exercises that you can do from home.
+          li.content__item
+            h4.item__heading Activate
+            p.item__paragraph Activate the support system​ with the Birddog and other exercises that unlock hip mobility, loosen your hamstrings and make flare-ups less probable. (Note: not situps or Russian twists)!
+          li.content__item
+            h4.item__heading Pattern 
+            p.item__paragraph Pattern Movements: ​Use pain as your asset to pattern movements before building strength within your body
+        p.content__paragraph These three gamechangers are stepping stones to the final stage in your recovery: adding a load. This stage isn’t included in your book because performing that step too soon will result in failure. (But when you’ve progressed through the three steps above, you can ​learn all about adding a load here​.) Remember, designing your roadmap is the first step to a successful recovery. That’s exactly why I made it the focus of your free book.
+    section.content_3
+      .container
+        h3.content__heading See that button below? In a single click, you’ll be on your way to easy wins.
+        img(src="./assets/images/runner__2.png" alt="runner 2").content__image
+    section.content_4
+      .container
+        h3.content__heading I Know This Works Because I’ve Been in Your Shoes
+        p.content__paragraph Ever since my second bout of back pain in my 30s, I’ve been determined to make recovery from lower back pain possible for everyone. I’d love to say I “fix” people. But in reality, all I do is guide them to the solution their body is looking for. Because all that most people need to get where they want to be—out of pain and active again—is the right guide.
+        p.content__paragraph.content__paragraph--blue As your trusted guide, it’s my job to only recommend the best possible resources for you. This book is one of them. Taking the time to read it now could spare you months, or even years, of suffering that keeps you from doing what you love.
+        figure.content__figure_book
+          img(src="./assets/images/book__cover.png" alt="book cover").book__image
+          button.book__button_order Order Now
+          span.book__span_description (You only pay #[span $19.95] for shipping)
+          //- a.book_reference_zip Enter ZIP code
+        p.content__paragraph Once you create a recovery roadmap with your new book, take the next step on my clinic’s website. We’ll show you everything you need to know about “a LOAD” (and help you bust through every recovery plateau).
+        p.content__paragraph.content__paragraph--blue Remember,  in most situations, it’s possible to get out of pain in two weeks or less. You just need a guide who can suggest the right thing at the right time with your specific condition. 
+        p.content__paragraph Get started today with your free book.
+        span.content__span Until next time,
+        .signature__container
+          img(src="./assets/images/signature.jpg" alt="signature").signature__image
+        span.content__span.content__span--blue Dr. Sebastian Gonzales, DC, CCSP®, CSCS, RMSK
+    section.comments
+      .container
+        h3.comments__heading What people are saying
+        ul.comments__items
+          li.comments__item
+            img.item__image(src="./assets/images/avatar.png" alt="avatar")
+            p.item__paragraph “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tempor urna eget erat feugiat fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean quis lectus sit amet ex molestie varius id non sem”.
+            span.item__span.item__span--blue Donna Smith
+          li.comments__item
+            img.item__image(src="./assets/images/avatar.png" alt="avatar")
+            p.item__paragraph “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tempor urna eget erat feugiat fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean quis lectus sit amet ex molestie varius id non sem”.
+            span.item__span.item__span--blue Michael McDonalid

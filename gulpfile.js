@@ -8,8 +8,8 @@ gulp.task('styles-compile', () => {
     return gulp.src(['./assets/styles/custom.sass', './assets/styles/reset.css'])
                 .pipe(sourcemaps.init())
                 .pipe(sass().on('error', sass.logError))
-                .pipe(concat('styles.min.css'))
-                .pipe(cleancss())
+                .pipe(concat('styles.css'))
+//                .pipe(cleancss())
                 .pipe(sourcemaps.write('./'))
                 .pipe(gulp.dest('./assets/styles/'));
 });
